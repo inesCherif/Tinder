@@ -1,0 +1,17 @@
+/* display flex to make every thing in a row */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f9f9f9    ;
+}
+/* customize logo */
+.header_logo{
+    height: 50px;
+    object-fit: contain;
+}
+/* customize icons */
+.header_icon{
+    padding: 20px;
+    color: gray; 
+}
