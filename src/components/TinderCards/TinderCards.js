@@ -1,10 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import './TinderCards.css';
 import TinderCard from 'react-tinder-card';
-import axios from "axios";
+// import database from './Firebase';
 
 function TinderCards() {
   const [people, setPeople] = useState([
+  // info just for test :
+
   //   {
   //       name:'ines cherif',
   //       url:"https://cdn.britannica.com/98/236598-050-9F0C5A8D/Mark-Zuckerberg-2019.jpg"
@@ -19,6 +21,22 @@ function TinderCards() {
   // },
   ]);
 
+
+// get info from firebase :
+
+// useEffect(() => {
+//   const unsubscribe=database.collection("people").onSnapshot(snapshot=>
+//       setPeople(snapshot.docs.map(doc=>doc.data()))
+//       )  
+//   return () => {
+//       unsubscribe()
+//   }
+// }, [])
+// Piece of code which runs based on a condition
+  
+
+
+// fetch info from an api:
   const fetchPhotos = () =>{
      fetch('https://jsonplaceholder.typicode.com/photos').then(response =>response.json()).then((json) => setPeople(json));
   }
@@ -29,9 +47,10 @@ function TinderCards() {
 
   return (
     <div>
-      {/* <h1>tinder cards</h1> */}
+      {/* tinder cards*/}
       <div className='tinderCards_cardContainer'>
       {
+        // mapping people so we get info one by one
         people.map((person) =>(
         <TinderCard className="swipe" key={person.id} preventSwipe={["up", "down"]}> 
             <div 
